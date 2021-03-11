@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="true" scan="true" scanPeriod="30 seconds" >
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d %5p [%thread] %logger | %m %n</pattern>
+			<outputPatternAsHeader>true</outputPatternAsHeader>			
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" />
+    <logger name="org.wipo.patentscope2" level="DEBUG" />
+    
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration> 

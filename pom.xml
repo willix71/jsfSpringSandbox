@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.willix.sandbox</groupId>
+	<artifactId>jsfSpring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.build.timestamp.format>dd.MM.yyyy HH:mm:ss (z)</maven.build.timestamp.format>
+		<buildTime>${maven.build.timestamp}</buildTime>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.report.sourceEncoding>UTF-8</project.report.sourceEncoding>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compilet.target>1.8</maven.compilet.target>	
+		
+		<spring.version>5.1.9.RELEASE</spring.version>
+		<jackson.version>2.9.8</jackson.version>
+		<xstream.version>1.4.7</xstream.version>
+		<modelmapper.version>0.7.4</modelmapper.version>
+		
+		<!-- logging -->
+		<org.slf4j.version>1.7.25</org.slf4j.version>
+		<logback.version>1.2.3</logback.version>
+		<janino.version>3.0.9</janino.version>
+		<org.log4j2.version>2.11.2</org.log4j2.version>
+		
+		<!-- testing -->
+		<junit.jupiter.version>5.7.0</junit.jupiter.version>
+		<assertj.version>3.8.0</assertj.version>
+		<mockito.version>3.6.0</mockito.version>
+	</properties>
+
+	<dependencies>
+		<!-- web -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.2</version>
+		</dependency>
+	
+<!-- 
+		<dependency>
+		  	<groupId>org.omnifaces</groupId>
+		  	<artifactId>omnifaces</artifactId>
+		  	<version>2.6.9</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>3.0.3.Final</version>
+    	</dependency>
+-->
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- tools -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		
+		<!-- marshalling -->
+		<dependency>
+			<!-- needed for marshalling to json -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
+		</dependency>
+			
+
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>${janino.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- some spring dependencies need to compile against jcl -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- needed to bridge to slf4j for projects that use java logging directly (such as JSF) -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- needed to bridge to slf4j for projects that use the log4j APIs directly -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<!-- needed to bridge to slf4j for projects that use the log4j 2 APIs  such as solr 8 -->
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-to-slf4j</artifactId>
+			<version>${org.log4j2.version}</version>
+		</dependency>
+
+		<!-- testing -->
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit.jupiter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+
+	</dependencyManagement>
+
+	<build>
+		<finalName>jsfSpring</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>version.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>version.properties</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.source}</target>
+				</configuration>
+			</plugin>
+					
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>test3</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<version>2.2</version>
+						<configuration>
+							<server>mvnDeployer</server>
+							<url>http://wapp2n.wipo.int:8380/manager/text</url>
+							<path>/jsfSpring</path>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

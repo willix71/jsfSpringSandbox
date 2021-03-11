@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<title>Patentscope's Robots Engine</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:outputLabel value="#{applicationBean.testString}"/>
+		
+		<pe:layout maskPanesEarly="true">
+			<pe:layoutPane position="north" size="85">  
+	            North 	             
+	        </pe:layoutPane>
+			
+			<pe:layoutPane position="center" maskContents="true">
+				center
+			</pe:layoutPane>
+			
+			<pe:layoutPane position="west" size="50%" resizeWhileDragging="false" maxSize="70%" minSize="30%" resizable="true" closable="true">  
+	            West #{applicationBean.testString}
+	        </pe:layoutPane>
+		</pe:layout>
+	</h:form>
+</h:body>
+</html>
